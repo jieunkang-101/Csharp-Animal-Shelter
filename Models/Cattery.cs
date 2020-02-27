@@ -1,12 +1,20 @@
+using System;
+using System.Collections.Generic;
+
 namespace AnimalShelter.Models
 {
   public class Cattery
   {
-    private int _population;
+    List<Cat> Cats = new List<Cat>() {}; 
 
-    public Cattery(int population)
+    private int _population;
+    private List<Cat> _availableCats;
+
+
+    public Cattery()
     {
-      _population = population;
+      _population = 0;
+      _availableCats = Cats;
     }
 
     public int GetPopulation()
@@ -14,15 +22,23 @@ namespace AnimalShelter.Models
       return _population;
     }
 
-    public void AddCat()
+    public List<Cat> GetAvailableCats()
+    {
+      return _availableCats;
+    }
+
+    // public void AddCat()
+    public void AddCat(Cat newCat)
     {
       _population ++;
-      // Cat.Creat()
+      Cats.Add(newCat);
     }
+    //in main, specify index of chosen cat , asame index in variable with int datatype
+    // public void RemoveCat(int chosenCatIndex)
     public void RemoveCat()
     {
       _population --;
-      // Cat.Creat()
+      // Cats.RemoveAt(chosenCatIndex);
     }
   }
 }
